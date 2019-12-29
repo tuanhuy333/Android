@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/img_quocgia"
+        android:src="@drawable/ic_launcher_background"
+        android:layout_width="80dp"
+        android:layout_height="80dp" />
+    <TextView
+        android:layout_marginTop="10dp"
+        android:textSize="30dp"
+        android:text="Việt Nam"
+        android:textColor="@color/colorAccent"
+        android:layout_toRightOf="@+id/img_quocgia"
+        android:id="@+id/txt_tenquocgia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+
+        android:textSize="15dp"
+        android:text="Diện tích"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_toRightOf="@+id/img_quocgia"
+        android:layout_below="@+id/txt_tenquocgia"
+        android:id="@+id/txt_dientichquocgia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</RelativeLayout>

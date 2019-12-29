@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity2"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_margin="20dp"
+        android:textSize="20dp"
+        android:id="@+id/txt_getString"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nhận dữ liệu String"
+        tools:layout_editor_absoluteX="62dp"
+        tools:layout_editor_absoluteY="39dp" />
+
+    <TextView
+        android:layout_margin="20dp"
+        android:textSize="20dp"
+        android:id="@+id/txt_getInt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nhận dữ liệu số"
+        tools:layout_editor_absoluteX="62dp"
+        tools:layout_editor_absoluteY="89dp" />
+
+    <TextView
+        android:layout_margin="20dp"
+        android:textSize="20dp"
+        android:id="@+id/txt_getArr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nhận dữ liệu [] String"
+        tools:layout_editor_absoluteX="62dp"
+        tools:layout_editor_absoluteY="145dp" />
+
+    <TextView
+        android:layout_margin="20dp"
+        android:textSize="20dp"
+        android:id="@+id/txt_getObject"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nhận dữ liệu Object"
+        tools:layout_editor_absoluteX="61dp"
+        tools:layout_editor_absoluteY="221dp" />
+
+    <TextView
+        android:id="@+id/txt_dataBundle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dữ liệu từ Bundle"
+        android:textSize="20dp"
+        android:layout_margin="20dp"/>
+</LinearLayout>

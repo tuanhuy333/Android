@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="horizontal">
+    <LinearLayout
+        android:layout_width="200dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <TextView
+        android:gravity="center"
+        android:text="PutExtra()"
+        android:textSize="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:layout_margin="15dp"
+        android:id="@+id/btn_truyenChuoi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Truyền dữ liệu 'chuỗi'"
+        tools:layout_editor_absoluteX="106dp"
+        tools:layout_editor_absoluteY="38dp" />
+
+    <Button
+        android:layout_margin="15dp"
+        android:id="@+id/btn_truyenSo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Truyền dữ liệu 'số'"
+        tools:layout_editor_absoluteX="106dp"
+        tools:layout_editor_absoluteY="118dp" />
+
+    <Button
+        android:layout_margin="15dp"
+        android:id="@+id/btn_truyenMangChuoi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Truyền mảng String"
+        tools:layout_editor_absoluteX="106dp"
+        tools:layout_editor_absoluteY="200dp" />
+
+    <Button
+        android:layout_margin="15dp"
+        android:id="@+id/btn_truyenDoituong"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Truyền Object"
+        tools:layout_editor_absoluteX="104dp"
+        tools:layout_editor_absoluteY="286dp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="200dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Bundle"
+            android:textSize="30dp"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Send Data"
+            android:layout_margin="20dp"
+            android:id="@+id/btn_sendbundle"
+            />
+
+    </LinearLayout>
+
+
+</LinearLayout>

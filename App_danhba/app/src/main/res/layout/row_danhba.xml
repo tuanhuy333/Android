@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:layout_marginTop="10dp" >
+    <RelativeLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/container">
+
+
+        <ImageView
+            android:background="@drawable/shape"
+            android:id="@+id/hinh_lienlac"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="10dp"
+            android:scaleType="centerCrop"
+            />
+        <TextView
+            android:layout_marginTop="20dp"
+            android:textColor="@color/colorAccent"
+            android:layout_marginLeft="10dp"
+            android:textSize="18dp"
+            android:text="Tên liên lạc"
+            android:id="@+id/ten_lienlac"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/hinh_lienlac"/>
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:text="SĐT"
+            android:id="@+id/sdt_lienlac"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/hinh_lienlac"
+            android:layout_below="@+id/ten_lienlac"/>
+        <ImageView
+            android:id="@+id/hinh_xoa"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/ic_delete_forever_black_50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            />
+
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

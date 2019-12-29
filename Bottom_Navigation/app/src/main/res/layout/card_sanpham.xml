@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="180dp"
+    android:layout_height="250dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardview"
+    android:layout_margin="15dp"
+
+
+    >
+    <LinearLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+
+        >
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+            <ImageView
+                android:layout_centerVertical="true"
+                android:id="@+id/hinh_sanpham"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                />
+
+        </RelativeLayout>
+
+        <TextView
+            android:textAlignment="center"
+            android:textColor="@color/colorAccent"
+            android:id="@+id/ten_sanpham"
+            android:textSize="20dp"
+            android:text="name san pham"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <RelativeLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:paddingLeft="50dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/text_gia"
+
+                android:text="Giá :"
+                android:textAlignment="center"/>
+            <TextView
+                android:paddingLeft="5dp"
+                android:layout_toRightOf="@+id/text_gia"
+
+                android:id="@+id/gia_sanpham"
+                android:textColor="@color/blue"
+                android:text="300000"
+                android:textSize="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:paddingLeft="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/text_sl"
+
+                android:text="Số lượng :"
+                android:textAlignment="center"/>
+            <TextView
+                android:paddingLeft="5dp"
+                android:layout_toRightOf="@+id/text_sl"
+                android:textAlignment="center"
+                android:id="@+id/soluong_sanpham"
+                android:textColor="@color/blue"
+                android:text="20"
+                android:textSize="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:textColor="@color/colorAccent"
+                android:id="@+id/donvi_sanpham"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/soluong_sanpham"
+                android:text="cái"
+                android:paddingLeft="5dp"/>
+        </RelativeLayout>
+
+
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

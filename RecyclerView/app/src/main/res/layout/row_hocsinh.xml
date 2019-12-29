@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:id="@+id/hinh_hocsinh"
+            android:src="@mipmap/ic_launcher"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:textColor="@color/colorAccent"
+                android:padding="5dp"
+                android:id="@+id/txt_tenhocsinh"
+                android:text="sdasdsadsa"/>
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:textColor="@color/colorAccent"
+                android:id="@+id/txt_lophocsinh"
+                android:padding="5dp"
+                android:text="sdasdsadsa"/>
+
+        </LinearLayout>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_chitiet"
+            android:text="Chi tiết"
+            android:layout_margin="10dp"
+            />
+
+    </LinearLayout>
+
+
+</LinearLayout>
