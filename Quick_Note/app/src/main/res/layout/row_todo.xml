@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    card_view:cardElevation="6dp"
+    android:layout_margin="10dp"
+    android:id="@+id/todo_container">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_gravity="center">
+
+        <CheckBox
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkbox_todo"/>
+
+        <TextView
+            android:layout_centerVertical="true"
+            android:fontFamily="casual"
+            android:textColor="@color/colorblue"
+            android:layout_toRightOf="@+id/checkbox_todo"
+            android:id="@+id/txt_tentodo"
+            android:textSize="15sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="dsadasd"/>
+
+        <TextView
+            android:layout_marginRight="5dp"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/date_created"
+            android:text="dasdasda"
+            android:layout_alignParentRight="true"/>
+
+
+    </RelativeLayout>
+
+
+
+</androidx.cardview.widget.CardView>

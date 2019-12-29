@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".MainActivity"
+    tools:showIn="@layout/activity_main"
+
+    android:orientation="vertical">
+    <TextView
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="45sp"
+        android:text="Quick Note"
+        android:fontFamily="cursive"
+        android:layout_margin="10dp"
+        android:textColor="@color/colorAccent"/>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="580dp">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="480dp">
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/text_main"
+            android:text="Hiện chưa có danh sách công việc"
+            android:fontFamily="casual"
+
+            android:textSize="20sp"
+            android:textColor="@color/colorblack"
+            android:layout_centerInParent="true"
+            />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:id="@+id/recyclerView"/>
+
+    </RelativeLayout>
+
+
+
+    </androidx.core.widget.NestedScrollView>
+
+
+
+
+
+
+        <LinearLayout
+            android:id="@+id/add_container"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            >
+
+            <ImageView
+                android:id="@+id/img_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_add_box_black_24dp"
+                android:layout_gravity="center"/>
+
+            <TextView
+                android:textColor="@color/colorAccent"
+                android:fontFamily="casual"
+                android:layout_gravity="center"
+                android:id="@+id/txt_addList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add new list"/>
+
+
+        </LinearLayout>
+
+
+
+
+
+
+
+</LinearLayout>
