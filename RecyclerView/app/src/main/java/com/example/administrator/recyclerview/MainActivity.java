@@ -6,7 +6,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +24,19 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        
+        
+        //tao list data
+        ArrayList<String>  = new ArrayList<>();
+        .add();
+        .add();
+        //adapter
+        ArrayAdapter  = new ArrayAdapter(this, android.R.layout.simple_list_item_1,);
+        //set
+        ListView =(ListView)findViewById(R.id.);
+        .setAdapter();
+                
+        
 
 
         recyclerView = findViewById(R.id.RecyclerView);
@@ -54,6 +69,13 @@ public class MainActivity extends AppCompatActivity {
         });
     }
     private void init_data(){
+
+        //1.implementation 'com.android.support:recyclerview-v7:28.0.0'
+        //2.Define class object hocsinh.java
+        //3.Define row_item.xml
+        //4.Define Adapter_hocsinh extend RecyclerView.Adapter<hocsinh>
+
+
         students = new ArrayList<hocsinh>();
 
         //Tự phát sinh 50 dữ liệu mẫu

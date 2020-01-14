@@ -6,7 +6,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -39,6 +41,9 @@ public class Adapter_hocsinh extends RecyclerView.Adapter {
             img_hs=(itemView).findViewById(R.id.img_hs);
             txt_tenhs=(itemView).findViewById(R.id.txt_tenhs);
             txt_lophs=(itemView).findViewById(R.id.txt_lophs);
+
+
+
         }
     }
     @NonNull
