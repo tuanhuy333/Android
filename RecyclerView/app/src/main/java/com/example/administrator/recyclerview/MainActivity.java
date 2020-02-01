@@ -24,19 +24,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         
-        
-        //tao list data
-        ArrayList<String>  = new ArrayList<>();
-        .add();
-        .add();
-        //adapter
-        ArrayAdapter  = new ArrayAdapter(this, android.R.layout.simple_list_item_1,);
-        //set
-        ListView =(ListView)findViewById(R.id.);
-        .setAdapter();
-                
-        
+
 
 
         recyclerView = findViewById(R.id.RecyclerView);
