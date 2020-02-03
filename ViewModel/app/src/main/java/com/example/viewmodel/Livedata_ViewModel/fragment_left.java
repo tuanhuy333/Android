@@ -41,7 +41,7 @@ public class fragment_left extends Fragment {
         btn_congAo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                quantityViewModel.quantityAo.setValue(quantityViewModel.quantityAo.getValue()+1);
+                quantityViewModel.get_quantityAo().setValue(quantityViewModel.get_quantityAo().getValue()+1);
                 displayQuantity();
 
             }
@@ -49,7 +49,7 @@ public class fragment_left extends Fragment {
         btn_truAo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                quantityViewModel.quantityAo.setValue(quantityViewModel.quantityAo.getValue()-1);
+                quantityViewModel.get_quantityAo().setValue(quantityViewModel.get_quantityAo().getValue()-1);
                 displayQuantity();
 
             }
@@ -57,7 +57,7 @@ public class fragment_left extends Fragment {
         btn_congQuan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                quantityViewModel.quantityQuan.setValue(quantityViewModel.quantityQuan.getValue()+1);
+                quantityViewModel.get_quantityQuan().setValue(quantityViewModel.get_quantityQuan().getValue()+1);
                 displayQuantity();
 
             }
@@ -65,7 +65,7 @@ public class fragment_left extends Fragment {
         btn_truQuan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                quantityViewModel.quantityQuan.setValue(quantityViewModel.quantityQuan.getValue()-1);
+                quantityViewModel.get_quantityQuan().setValue(quantityViewModel.get_quantityQuan().getValue()-1);
                 displayQuantity();
 
             }
@@ -87,8 +87,8 @@ public class fragment_left extends Fragment {
     //display quantity
     private void displayQuantity(){
 
-        txt_Ao.setText(quantityViewModel.quantityAo.getValue()+"");
-        txt_Quan.setText(quantityViewModel.quantityQuan.getValue()+"");
+        txt_Ao.setText(quantityViewModel.get_quantityAo().getValue()+"");
+        txt_Quan.setText(quantityViewModel.get_quantityQuan().getValue()+"");
     }
 
 

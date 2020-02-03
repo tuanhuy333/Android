@@ -32,14 +32,14 @@ public class fragment_top extends Fragment {
 
 
        //them observer (nguoi quan sat thay doi livedata)
-        quantityViewModel.quantityAo.observe(getActivity(), new Observer<Integer>() {
+        quantityViewModel.get_quantityAo().observe(getActivity(), new Observer<Integer>() {
             @Override
             public void onChanged(Integer integer) {
                 display();
             }
         });
 
-        quantityViewModel.quantityQuan.observe(getActivity(), new Observer<Integer>() {
+        quantityViewModel.get_quantityQuan().observe(getActivity(), new Observer<Integer>() {
             @Override
             public void onChanged(Integer integer) {
                display();
@@ -51,7 +51,7 @@ public class fragment_top extends Fragment {
 
     private void display(){
 
-        int tongcong=quantityViewModel.quantityAo.getValue()+quantityViewModel.quantityQuan.getValue();
+        int tongcong=quantityViewModel.get_quantityAo().getValue()+quantityViewModel.get_quantityQuan().getValue();
 
         txt_tongcong.setText(tongcong+"");
     }

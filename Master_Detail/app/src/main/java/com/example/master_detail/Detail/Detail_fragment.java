@@ -29,7 +29,7 @@ public class Detail_fragment extends Fragment implements LifecycleOwner {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        masterVM= ViewModelProviders.of(getActivity()).get(MasterVM.class);
+        masterVM = ViewModelProviders.of(getActivity()).get(MasterVM.class);
         masterVM.getmSelectedItem().observe(this, new Observer<String>() {
             @Override
             public void onChanged(String s) {

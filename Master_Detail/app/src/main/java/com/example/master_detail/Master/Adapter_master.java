@@ -1,5 +1,6 @@
 package com.example.master_detail.Master;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,17 +16,22 @@ import java.util.List;
 
 public class Adapter_master extends RecyclerView.Adapter {
 
+
     private List<String> mdata;
+
+    //contructor
+
+    public Adapter_master() {
+       mdata=new ArrayList<>();
+    }
+
     private onItemClickListener mListener;
 
     public void setmListener(onItemClickListener listener) {
         this.mListener = listener;
     }
 
-    //contructor
-    public Adapter_master(){
-        mdata = new ArrayList<>();
-    }
+
 
     @NonNull
     @Override
@@ -53,7 +59,7 @@ public class Adapter_master extends RecyclerView.Adapter {
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    mListener.onClick(mdata.get(getAdapterPosition()));
+                    mListener.onClick(mdata.get(getAdapterPosition()));//(result
                 }
             });
         }
