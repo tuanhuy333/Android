@@ -19,7 +19,7 @@ import com.example.master_detail.R;
 
 public class Detail_fragment extends Fragment implements LifecycleOwner {
 
-    TextView txt_name;
+    TextView txt_name,txt_test;
     MasterVM masterVM;
 
     //tạo người đứng nhìn thay đổi data
@@ -29,11 +29,13 @@ public class Detail_fragment extends Fragment implements LifecycleOwner {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        //phai la getActivity() moi duoc
         masterVM = ViewModelProviders.of(getActivity()).get(MasterVM.class);
         masterVM.getmSelectedItem().observe(this, new Observer<String>() {
             @Override
             public void onChanged(String s) {
-                txt_name.setText(s);
+               // txt_name.setText(s);
+                txt_test.setText(s);
             }
         });
     }
@@ -53,5 +55,6 @@ public class Detail_fragment extends Fragment implements LifecycleOwner {
         //khi tạo được View rồi
         //thì ánh xạ
         txt_name = view.findViewById(R.id.txt_ten);
+        txt_test = view.findViewById(R.id.txt_test);
     }
 }

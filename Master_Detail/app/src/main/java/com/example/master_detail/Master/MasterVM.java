@@ -28,7 +28,7 @@ public class MasterVM extends AndroidViewModel {
         return mSelectedItem;
     }
 
-    //set value
+    //set value de truyen qa fragment khac
     public void setmSelectedItem(String selectedItem) {
         mSelectedItem.setValue(selectedItem);
     }

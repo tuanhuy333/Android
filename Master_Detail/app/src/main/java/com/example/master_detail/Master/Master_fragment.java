@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -24,7 +25,7 @@ public class Master_fragment extends Fragment implements LifecycleOwner, Adapter
 
     private Adapter_master adapter_master;
     private MasterVM masterVM;
-
+    Button btn;
     public Master_fragment(){
 
     }
@@ -34,6 +35,7 @@ public class Master_fragment extends Fragment implements LifecycleOwner, Adapter
         super.onCreate(savedInstanceState);
 
         //tạo viewModel
+        //phai la getActivity() o ca 2 ben ...gui va nhan
         masterVM = ViewModelProviders.of(getActivity()).get(MasterVM.class);
         //quan sát sự thay đổi của List<String> mData
         masterVM.getmData().observe(this, new Observer<List<String>>() {
@@ -62,11 +64,19 @@ public class Master_fragment extends Fragment implements LifecycleOwner, Adapter
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(adapter_master);
+
+        btn=view.findViewById(R.id.btn);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                masterVM.setmSelectedItem("hello");
+            }
+        });
     }
 
     @Override
     public void onClick(String result) {
-        masterVM.setmSelectedItem(result);
+        masterVM.setmSelectedItem("rweo");
         Toast.makeText(getActivity(), result, Toast.LENGTH_SHORT).show();
     }
 }

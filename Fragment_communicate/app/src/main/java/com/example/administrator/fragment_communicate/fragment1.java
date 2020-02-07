@@ -1,5 +1,7 @@
 package com.example.administrator.fragment_communicate;
 
+import android.arch.lifecycle.Observer;
+import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -10,11 +12,28 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class fragment1 extends Fragment {
     TextView txtFrag1,txtActivity;
     Button btnFrag1;
     EditText edtFrag1;
+
+    mViewModel mViewModel;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mViewModel= ViewModelProviders.of(getActivity()).get(mViewModel.class);
+        mViewModel.message.observe(this, new Observer<String>() {
+            @Override
+            public void onChanged(@Nullable String s) {
+                edtFrag1.setText(s);
+                Toast.makeText(getActivity(), s, Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -24,6 +43,8 @@ public class fragment1 extends Fragment {
         btnFrag1=(Button)view.findViewById(R.id.btnFrag1);
         edtFrag1=(EditText)view.findViewById(R.id.edtFrag1);
 
+
+
         btnFrag1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -31,6 +52,8 @@ public class fragment1 extends Fragment {
                 txtActivity.setText(edtFrag1.getText().toString());
             }
         });
+
+
         return view;
     }
     public void change_text(String text){
