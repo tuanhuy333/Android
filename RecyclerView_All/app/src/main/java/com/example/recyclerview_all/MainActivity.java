@@ -31,7 +31,9 @@ public class MainActivity extends AppCompatActivity  implements Adapter_user.onI
 
         mData=User.mData(100);
         Adapter_user adapter_user = new Adapter_user(mData);
-        recyclerView.setLayoutManager(gridLayoutManager);
+
+        //horizontal recyclerview
+        recyclerView.setLayoutManager(new LinearLayoutManager(getApplication(),RecyclerView.HORIZONTAL,false));
         recyclerView.setAdapter(adapter_user);
 
         //cuon toi vi tri them moi
@@ -59,3 +61,4 @@ public class MainActivity extends AppCompatActivity  implements Adapter_user.onI
         Toast.makeText(this, position+"", Toast.LENGTH_SHORT).show();
     }
 }
+

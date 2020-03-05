@@ -16,12 +16,16 @@ public interface EmployDao {
     //employee
     @Insert(onConflict = REPLACE)
     void insertEmploy(Employee employee);
+
     @Insert(onConflict = IGNORE)
     void insertOrReplaceEmploy(Employee... employees);
+
     @Update(onConflict = REPLACE)
     void updateEmploy(Employee employee);
+
     @Query("DELETE FROM Employee")
     void deleteAll();
+
     @Query("SELECT * FROM Employee")
     public List<Employee> findAllEmploySync();
 
@@ -32,9 +36,9 @@ public interface EmployDao {
     //company
     @Insert(onConflict = REPLACE)
     void insertCompany(Company company);
+
     @Query("select * from Company")
     List<Company> getAllCompany();
-
 
 
 }
