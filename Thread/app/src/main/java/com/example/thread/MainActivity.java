@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
+import android.os.Message;
+import android.util.Log;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -21,12 +23,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void postTaskInsideBackgroundTask(){
-        Thread backgroundThread=new Thread(new Runnable() {
+        final Thread backgroundThread=new Thread(new Runnable() {
             @Override
             public void run() {
                 // pretend to do something "background-y"
                 try {
-                    Thread.sleep(5000); //nghi 5s
+                    for(int i=0;i<20;++i){
+                        Log.d("t",i+"");
+                        Thread.sleep(2000); //nghi 5s
+                    }
+
 
 
                 } catch (InterruptedException e) {
@@ -38,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         //muon tuong tac voi UI phai post
+
                         txt.setText("Hi from a Handler inside of a background Thread!");
                     }
                 });
@@ -45,5 +52,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         backgroundThread.start();
+
+
     }
 }

@@ -1,2 +1,2 @@
+rootProject.name='BroadcastReceiver'
 include ':app'
-rootProject.name='Broadcast Receiver'

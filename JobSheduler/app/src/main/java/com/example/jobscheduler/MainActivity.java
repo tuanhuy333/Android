@@ -13,7 +13,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     private JobScheduler jobScheduler;
-    private JobInfo jobInfo;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
              .setPeriodic(15*60*1000)
                 .setPersisted(true)
 
-                .setRequiredNetworkType(JobInfo.NETWORK_TYPE_UNMETERED)
+                .setRequiredNetworkType(JobInfo.NETWORK_TYPE_ANY)
 
                 .build();
         int i=jobScheduler.schedule(jobInfo);

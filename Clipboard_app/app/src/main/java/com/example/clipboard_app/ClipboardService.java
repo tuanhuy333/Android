@@ -43,12 +43,12 @@ public class ClipboardService extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
 
         clipboardManager = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+
         Log.d("a", "service is starting");
 //        ClipData clip = ClipData.newPlainText("copy", "daas");
 //        clipboardManager.setPrimaryClip(clip);
         push();
         clipboardManager.addPrimaryClipChangedListener(listener);
-
 
 
         return START_STICKY; //se restart service khi he thong co dung luong
@@ -70,18 +70,16 @@ public class ClipboardService extends Service {
             Bundle b = new Bundle();
             b.putString("txt", charSequence);
             intent.putExtra("data", b);
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK); //mo activity voi new task
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK); //mo activity voi new task
 
 
             startActivity(intent);
 
 
-
-
-
         }
     };
-    public void push(){
+
+    public void push() {
         //tap action
         // Create an explicit intent for an Activity in your app
         Intent intent1 = new Intent(getApplicationContext(), MainActivity.class);
@@ -99,8 +97,6 @@ public class ClipboardService extends Service {
 
                 .setContentIntent(pendingIntent) //tap action
                 .setAutoCancel(true);
-
-
 
 
         //tao Channel
@@ -124,9 +120,9 @@ public class ClipboardService extends Service {
 //        // notificationId is a unique int for each notification that you must define
 //        notificationManager.notify(1, builder.build());
 
-        Notification notification=builder.build();
+        Notification notification = builder.build();
 
-        startForeground(2,notification);
+        startForeground(2, notification);
     }
 
     @Override

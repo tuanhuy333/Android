@@ -23,25 +23,26 @@ import java.util.Calendar;
 public class MainActivity extends AppCompatActivity {
     TimePicker timePicker;
     DatePicker datePicker;
-    Button btn_datgio,btn_test;
+    Button btn_datgio, btn_test;
     TextView txt_giobaothuc;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         //
-        timePicker=(TimePicker)findViewById(R.id.time);
-        btn_datgio=(Button)findViewById(R.id.btn_datgio);
-        txt_giobaothuc=(TextView)findViewById(R.id.txt_giobaothuc);
-        btn_test=(Button)findViewById(R.id.button);
-        datePicker=(DatePicker)findViewById(R.id.datepicker);
+        timePicker = (TimePicker) findViewById(R.id.time);
+        btn_datgio = (Button) findViewById(R.id.btn_datgio);
+        txt_giobaothuc = (TextView) findViewById(R.id.txt_giobaothuc);
+        btn_test = (Button) findViewById(R.id.button);
+        datePicker = (DatePicker) findViewById(R.id.datepicker);
 
         //cập nhật text khi chỉnh đồng hồ
         timePicker.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
             @Override
             public void onTimeChanged(TimePicker view, int hourOfDay, int minute) {
-                txt_giobaothuc.setText("Giờ báo thức : "+hourOfDay+" :"+minute+"" );
+                txt_giobaothuc.setText("Giờ báo thức : " + hourOfDay + " :" + minute + "");
 
 
             }
@@ -51,18 +52,17 @@ public class MainActivity extends AppCompatActivity {
         btn_datgio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Calendar calendar=Calendar.getInstance();
-                if(Build.VERSION.SDK_INT >=23){
+                Calendar calendar = Calendar.getInstance();
+                if (Build.VERSION.SDK_INT >= 23) {
                     calendar.set(
-                    calendar.get(calendar.YEAR),
-                    calendar.get(calendar.MONTH),
-                    calendar.get(calendar.DAY_OF_MONTH),
-                    timePicker.getCurrentHour(),
-                    timePicker.getCurrentMinute()-1,
-                    30
+                            calendar.get(calendar.YEAR),
+                            calendar.get(calendar.MONTH),
+                            calendar.get(calendar.DAY_OF_MONTH),
+                            timePicker.getCurrentHour(),
+                            timePicker.getCurrentMinute() - 1,
+                            30
                     );
-                }else
-                {
+                } else {
                     calendar.set(
 
                             datePicker.getYear(),
@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
                             datePicker.getDayOfMonth(),
 
                             timePicker.getCurrentHour(),
-                            timePicker.getCurrentMinute()-1,
+                            timePicker.getCurrentMinute() - 1,
                             30
                     );
 
@@ -93,10 +93,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setAlarm(Calendar c) {
-        AlarmManager alarmManager= (AlarmManager) getSystemService(ALARM_SERVICE);
-        Intent intent=new Intent(this,myAlarmReceiver.class);
-        PendingIntent pendingIntent=PendingIntent.getBroadcast(MainActivity.this,0,intent,0);
-        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,c.getTimeInMillis(),AlarmManager.INTERVAL_DAY,pendingIntent);
+        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+
+        Intent intent = new Intent(this, myAlarmReceiver.class);
+
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(MainActivity.this, 0, intent, 0);
+       // PendingIntent pendingIntent1=PendingIntent.getService(MainActivity.this,0,new Intent(this,mService.class),0);
+
+        alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, 1000, AlarmManager.INTERVAL_DAY, pendingIntent);
 
         Toast.makeText(this, "Đã đặt báo thức ", Toast.LENGTH_SHORT).show();
     }

@@ -24,7 +24,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
-    List<Movie>movieList;
+    List<Movie> movieList;
     Adapter_movie adapter_movie;
 
     @Override
@@ -33,35 +33,34 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-       recyclerView=(RecyclerView)findViewById(R.id.recyclerView);
-        movieList=new ArrayList<>();
+        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        movieList = new ArrayList<>();
 
         //chi dinh viewModel
-        final MovieViewModel movieViewModel= ViewModelProviders.of(MainActivity.this).get(MovieViewModel.class);
-
+        final MovieViewModel movieViewModel = ViewModelProviders.of(MainActivity.this).get(MovieViewModel.class);
 
 
         //movieViewModel.deleteMovieViewModel(movie);
 ////
 
 
- //     movieViewModel.insertMovieViewModel(new Movie(3,"Naruto","Cartoon"));
- //     movieViewModel.insertMovieViewModel(new Movie(2,"Walking Dead","Honnor"));
+        //     movieViewModel.insertMovieViewModel(new Movie(3,"Naruto","Cartoon"));
+        //     movieViewModel.insertMovieViewModel(new Movie(2,"Walking Dead","Honnor"));
 
         movieViewModel.getAllMovieViewModel().observe(this, new Observer<List<Movie>>() {
             @Override
             public void onChanged(List<Movie> movies) {
-                movieList=movies;
+                movieList = movies;
 
-                adapter_movie=new Adapter_movie(MainActivity.this,R.layout.movie_item,movieList);
-                LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getApplicationContext());
+                adapter_movie = new Adapter_movie(MainActivity.this, R.layout.movie_item, movieList);
+                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
                 recyclerView.setLayoutManager(linearLayoutManager);
                 recyclerView.setAdapter(adapter_movie);
             }
         });
 
         //swipe for delete
-        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.LEFT|ItemTouchHelper.RIGHT) {
+        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
             @Override
             public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
                 return false;
@@ -69,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
-                Movie movie=adapter_movie.getMovieAt(viewHolder.getAdapterPosition());
+                Movie movie = adapter_movie.getMovieAt(viewHolder.getAdapterPosition());
 
                 //delete
                 movieViewModel.deleteMovieViewModel(movie);
@@ -77,8 +76,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         }).attachToRecyclerView(recyclerView);
-
-
 
 
     }

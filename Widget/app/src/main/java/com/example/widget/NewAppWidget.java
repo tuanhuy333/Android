@@ -1,0 +1,84 @@
+package com.example.widget;
+
+import android.app.PendingIntent;
+import android.appwidget.AppWidgetManager;
+import android.appwidget.AppWidgetProvider;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.CountDownTimer;
+import android.util.Log;
+import android.widget.RemoteViews;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
+/**
+ * Implementation of App Widget functionality.
+ */
+public class NewAppWidget extends AppWidgetProvider {
+
+    @Override
+    public void onReceive(Context context, Intent intent) {
+
+        //khi tap and hold on widget
+        //thi se vao onReceive
+        Log.d("a", "nhan phat song");
+        super.onReceive(context, intent);
+    }
+
+    static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
+                                int appWidgetId) {
+
+
+        CharSequence widgetText = context.getString(R.string.appwidget_text);
+
+        String max_width = AppWidgetManager.OPTION_APPWIDGET_MAX_WIDTH;
+        // Construct the RemoteViews object
+        final RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.new_app_widget);
+
+//        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("E ,dd/MM/yyyy");
+//        Date date = new Date();
+//        String time = simpleDateFormat.format(date);
+
+
+        SharedPreferences sharedPreferences = context.getSharedPreferences("word", Context.MODE_PRIVATE);
+        String english = sharedPreferences.getString("english", "my english");
+        String vietnamese = sharedPreferences.getString("vietnamese", "my vietnamese");
+
+        //views.setTextViewText(R.id.time,time);
+        views.setCharSequence(R.id.appwidget_text, "setText", english);
+        views.setTextViewText(R.id.mText, vietnamese);
+
+
+        //click vào text view để mở app
+        PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, new Intent(context, MainActivity.class), 0);
+        views.setOnClickPendingIntent(R.id.appwidget_text, pendingIntent);
+
+        // Instruct the widget manager to update the widget
+        appWidgetManager.updateAppWidget(appWidgetId, views);
+    }
+
+    @Override
+    public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
+        Log.d("a1", "updated");
+
+        // There may be multiple widgets active, so update all of them
+        for (int appWidgetId : appWidgetIds) {
+            updateAppWidget(context, appWidgetManager, appWidgetId);
+        }
+    }
+
+    @Override
+    public void onEnabled(Context context) {
+        // Enter relevant functionality for when the first widget is created
+    }
+
+    @Override
+    public void onDisabled(Context context) {
+        // Enter relevant functionality for when the last widget is disabled
+    }
+}
+
