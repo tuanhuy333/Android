@@ -10,9 +10,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
@@ -59,12 +62,13 @@ public class MainActivity extends AppCompatActivity {
 
         //tạo luồng ghi file
 
+
         try {
-            FileOutputStream out = this.openFileOutput(file_name, MODE_PRIVATE);
+            FileOutputStream out = this.openFileOutput(file_name, MODE_APPEND);
 
-
+            String data=editText_ghi.getText().toString()+"\n";
             //ghi
-            out.write(editText_ghi.getText().toString().getBytes());
+            out.write(data.getBytes());
             out.close();
 
             Toast.makeText(MainActivity.this,"File đã được ghi lại",Toast.LENGTH_SHORT).show();
@@ -75,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-
+        read_file();
     }
 
     //read file method
@@ -99,6 +103,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
             txt_noidung.setText(stringBuilder);
+
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
