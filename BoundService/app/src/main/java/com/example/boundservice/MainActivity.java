@@ -23,8 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-
-    //param2 : ServiceConnection
+    // 3) Để giám sát trạng thái của "Service" tạo instance "ServiceConnection"
     ServiceConnection mServiceConnection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
@@ -33,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
             mBound = true;
         }
 
+        // khi activity mất kết nối vs Service
         @Override
         public void onServiceDisconnected(ComponentName name) {
             mBound = false;
@@ -41,9 +41,8 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onStart() {
-        //param1 :Intent
+        // 4) Thực hiện bind Service với Activity
         Intent intent = new Intent(this, LocalService.class);
-        //goi BoundService
         bindService(intent, mServiceConnection, Context.BIND_AUTO_CREATE);
 
         Log.d("d", "bind service");
@@ -66,6 +65,8 @@ public class MainActivity extends AppCompatActivity {
         if (mBound) {
             int i = localService.getRandomNumber();
             Log.d("d", i + "");
+            //
+            localService.get_Log();
         }
 
 

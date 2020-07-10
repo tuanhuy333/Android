@@ -121,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         //periodic task
-        PeriodicWorkRequest periodicWorkRequest = new PeriodicWorkRequest.Builder(mWork.class, 15, TimeUnit.MINUTES)
+        final PeriodicWorkRequest periodicWorkRequest = new PeriodicWorkRequest.Builder(mWork.class, 15, TimeUnit.MINUTES)
                 .setBackoffCriteria(BackoffPolicy.LINEAR,
                         OneTimeWorkRequest.MIN_BACKOFF_MILLIS,
                         TimeUnit.MILLISECONDS)
@@ -131,16 +131,19 @@ public class MainActivity extends AppCompatActivity {
                 .build();
 
         //chay cong viec duoc lap lai sau 15min
-//        WorkManager.getInstance(this).enqueueUniquePeriodicWork("change_mode",
-//                ExistingPeriodicWorkPolicy.KEEP,
-//                periodicWorkRequest);
+        WorkManager.getInstance(this).enqueueUniquePeriodicWork("change_mode2",
+                ExistingPeriodicWorkPolicy.KEEP,
+                periodicWorkRequest);
+
+//        Log.d("a","15phut chạy");
 
         //chay
         btn_datgio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                xinquyen();
+                //xinquyen();
 
+                Log.d("a","15phut chạy");
                 Toast.makeText(MainActivity.this, "Đã đặt giờ", Toast.LENGTH_SHORT).show();
             }
         });

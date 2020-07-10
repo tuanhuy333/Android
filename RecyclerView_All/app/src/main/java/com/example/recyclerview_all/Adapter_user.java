@@ -21,6 +21,8 @@ public class Adapter_user extends RecyclerView.Adapter {
         this.mData = mData;
     }
 
+
+    // ViewHolder cho item_user
     public class mViewHolder extends RecyclerView.ViewHolder {
 
         private ImageView img;
@@ -38,11 +40,15 @@ public class Adapter_user extends RecyclerView.Adapter {
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    mListener.onClick(v,getAdapterPosition());
+                    mListener.onClick(v, getAdapterPosition());
                 }
             });
         }
     }
+
+
+
+
 
     @NonNull
     @Override
@@ -68,11 +74,26 @@ public class Adapter_user extends RecyclerView.Adapter {
 
     //xu ly Click
     public interface onItemClickListener {
-        void onClick(View v,int position);
+        void onClick(View v, int position);
     }
 
     public void setOnClickListener(onItemClickListener listener) {
         this.mListener = listener;
 
+    }
+
+    //
+    public void removeItem(int position) {
+        mData.remove(position);
+        // notify the item removed by position
+        // to perform recycler view delete animations
+        // NOTE: don't call notifyDataSetChanged()
+        notifyItemRemoved(position);
+    }
+
+    public void restoreItem(User item, int position) {
+        mData.add(position, item);
+        // notify item added by position
+        notifyItemInserted(position);
     }
 }

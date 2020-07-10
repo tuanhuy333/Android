@@ -47,7 +47,7 @@ public class User {
     public static List<User> mData(int soluong) {
         List<User> list = new ArrayList<>();
         for (int i = 1; i < soluong; ++i) {
-            list.add(new User(R.drawable.ic_launcher_foreground, "hu" + i + "@gmail.com", "tuikhongbiet" + i));
+            list.add(new User(R.drawable.ic_launcher_background, "hu" + i + "@gmail.com", "tuikhongbiet" + i));
         }
         return list;
     }

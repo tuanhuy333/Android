@@ -34,48 +34,62 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void pushNotification(){
-        //tap action
-        // Create an explicit intent for an Activity in your app
-        Intent intent = new Intent(this, MainActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
+    // push Noti
+    public void pushNotification() {
 
-        //notification
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "noti_001")
-                .setSmallIcon(R.drawable.ic_launcher_foreground)
-                .setContentTitle("My notification")
-                .setContentText("Much longer text that cannot fit one line...")
-                .setStyle(new NotificationCompat.BigTextStyle()
-                        .bigText("Much longer text that cannot fit one line..."))
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+        String CHANNEL_ID = "my_channel_01";
+        CharSequence name = "my_channel";
+        String Description = "This is my channel";
 
-                .setContentIntent(pendingIntent) //tap action
-                .setAutoCancel(true);
+        int NOTIFICATION_ID = 234;
+
+        NotificationManager notificationManager =
+                (NotificationManager) getSystemService(getApplicationContext().NOTIFICATION_SERVICE);
 
 
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
 
+            int importance = NotificationManager.IMPORTANCE_HIGH;
+            NotificationChannel mChannel = new NotificationChannel(CHANNEL_ID, name, importance);
+            mChannel.setDescription(Description);
+            mChannel.enableLights(true);
 
-        //tao Channel
-        //Android Oreo ( android 8 )phai dang ky channel truoc khi gui notification
-        // Create the NotificationChannel, but only on API 26+ because
-        // the NotificationChannel class is new and not in the support library
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            mChannel.enableVibration(true);
+            mChannel.setVibrationPattern(new long[]{100, 200, 300, 400, 500, 400, 300, 200, 400});
+            mChannel.setShowBadge(true);
 
-            int importance = NotificationManager.IMPORTANCE_DEFAULT;
-            NotificationChannel channel = new NotificationChannel("noti_001", "huy", importance);
-            channel.setDescription("This is my channel description");
-            // Register the channel with the system; you can't change the importance
-            // or other notification behaviors after this
-            NotificationManager notificationManager = getSystemService(NotificationManager.class);
-            notificationManager.createNotificationChannel(channel);
+            if (notificationManager != null) {
+
+                notificationManager.createNotificationChannel(mChannel);
+            }
+
         }
 
-        //show notification
-        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
 
-// notificationId is a unique int for each notification that you must define
-        notificationManager.notify(1, builder.build());
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        PendingIntent resultPendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
+
+
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
+                .setContentTitle("TITLE")
+                .setContentText("SUB-TITLE")
+                .setStyle(new NotificationCompat.BigTextStyle().bigText("Notice that the NotificationCompat.Builder constructor requires that you provide a channel ID. This is required for compatibility with Android 8.0 (API level 26) and higher, but is ignored by older versions By default, the notification's text content is truncated to fit one line. If you want your notification to be longer, you can enable an expandable notification by adding a style template with setStyle(). For example, the following code creates a larger text area"))
+                .setSmallIcon(R.mipmap.ic_launcher)
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                .setContentIntent(resultPendingIntent)
+                .setAutoCancel(true)
+                .setColor(getResources().getColor(android.R.color.holo_red_dark))
+                .addAction(R.drawable.ic_launcher_foreground, "Call", resultPendingIntent)
+                .addAction(R.drawable.ic_launcher_foreground, "More", resultPendingIntent)
+                .addAction(R.drawable.ic_launcher_foreground, "And more", resultPendingIntent);
+
+
+        if (notificationManager != null) {
+
+            notificationManager.notify(NOTIFICATION_ID, builder.build());
+        }
 
     }
     public void pushNotification2(){
@@ -141,7 +155,7 @@ public class MainActivity extends AppCompatActivity {
             notificationManager.notify(i, notifications.get(i));
         }
 
-       // notificationManager.notify(SUMMARY_ID, summaryNotification);
+        notificationManager.notify(SUMMARY_ID, summaryNotification);
 
     }
 

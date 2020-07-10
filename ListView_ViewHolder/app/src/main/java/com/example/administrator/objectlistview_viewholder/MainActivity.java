@@ -31,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
        ListView listView = (ListView) findViewById(R.id.listview);
        listView.setAdapter(adapter);
 
+
+
     }
 
     public void add_sach() {

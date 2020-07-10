@@ -22,8 +22,8 @@ public class MainActivity extends AppCompatActivity implements SignInContract.Vi
         //co nhiem vu lay data tu nguoi dung nhap vao
         //vd: presenter.signIn(edtUser.getText(),edtPass.getText())
 
-        SignInPresenter presenter=new SignInPresenter(this);
-        presenter.signIn("huy","thanh");
+        SignInPresenter presenter = new SignInPresenter(this);
+        presenter.signIn("huy", "thanh");
 
 
     }

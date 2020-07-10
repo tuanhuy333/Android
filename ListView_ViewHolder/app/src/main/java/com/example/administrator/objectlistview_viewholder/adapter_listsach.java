@@ -15,6 +15,7 @@ public class adapter_listsach extends BaseAdapter {
     private int layout;
     private List<sach> list_sach;
 
+    //contructor để gọi ở class sử dụng nó
     public adapter_listsach(Context context, int layout, List<sach> list_sach) {
         this.context = context;
         this.layout = layout;

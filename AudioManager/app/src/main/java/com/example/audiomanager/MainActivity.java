@@ -14,21 +14,24 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btn_vibrate,btn_silent,btn_sound;
+    Button btn_vibrate, btn_silent, btn_sound;
     AudioManager audioManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        audioManager= (AudioManager) getSystemService(AUDIO_SERVICE);
-        Toast.makeText(this, audioManager.getRingerMode()+"", Toast.LENGTH_SHORT).show();
-        Toast.makeText(this, audioManager.getMode()+"", Toast.LENGTH_SHORT).show();
+        audioManager = (AudioManager) getSystemService(AUDIO_SERVICE);
+        Toast.makeText(this, audioManager.getRingerMode() + "", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, audioManager.getMode() + "", Toast.LENGTH_SHORT).show();
 
         anhxa();
 
+
         //che do im lang phai xin quyen trong cai dat
         //vi anh huong den cac thong bao cua ung dung khac cua dien thoai
+
         btn_silent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,21 +52,23 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
-    public void anhxa(){
-        btn_silent=findViewById(R.id.btn_silent);
-        btn_sound=findViewById(R.id.btn_sound);
-        btn_vibrate=findViewById(R.id.btn_vibrate);
+
+    public void anhxa() {
+        btn_silent = findViewById(R.id.btn_silent);
+        btn_sound = findViewById(R.id.btn_sound);
+        btn_vibrate = findViewById(R.id.btn_vibrate);
     }
 
-    public void xinquyen_silent(){
-        NotificationManager notificationManager= (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+    public void xinquyen_silent() {
+        NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 
         //neu da duoc ban cho quyen
-        if(notificationManager.isNotificationPolicyAccessGranted()){
+        if (notificationManager.isNotificationPolicyAccessGranted()) {
             audioManager.setRingerMode(AudioManager.RINGER_MODE_SILENT);
-        }else {
-            Intent intent=new Intent(Settings.ACTION_NOTIFICATION_POLICY_ACCESS_SETTINGS);
-            startActivityForResult(intent,111);
+        } else {
+            Intent intent = new Intent(Settings.ACTION_NOTIFICATION_POLICY_ACCESS_SETTINGS);
+            startActivityForResult(intent, 111);
+
         }
 
 
@@ -72,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         //neu khong duoc dong y tu nguoi dung thi xin quyen lai
-        if(requestCode!=111){
+        if (requestCode != 111) {
             this.xinquyen_silent();
         }
 
